@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://seeklogo.com/images/A/angular-logo-6EB930C68B-seeklogo.com.png" width="180" alt="Nest Logo" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="http://nestjs.com/" target="blank"><img src="https://seeklogo.com/images/N/nestjs-logo-09342F76C0-seeklogo.com.png" width="110" alt="Nest Logo" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="http://nestjs.com/" target="blank"><img src="https://seeklogo.com/images/N/nestjs-logo-09342F76C0-seeklogo.com.png" width="90" alt="Nest Logo" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="http://nestjs.com/" target="blank"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" width="120" alt="Nest Logo" /></a>&nbsp;&nbsp;&nbsp;
   <a href="http://nestjs.com/" target="blank"><img src="https://user-images.githubusercontent.com/30929568/112730670-de09a480-8f58-11eb-9875-0d9ebb87fbd6.png" width="180" alt="Nest Logo" /></a>&nbsp;&nbsp;
   <a href="http://nestjs.com/" target="blank"><img src="https://www.vectorlogo.zone/logos/postgresql/postgresql-vertical.svg" width="110" alt="Nest Logo" /></a>
