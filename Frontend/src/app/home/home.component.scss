@@ -1,0 +1,89 @@
+.container {
+    margin: 2%;
+}
+
+table {
+    width: 100%;
+}
+
+.example {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+
+    .mat-table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1rem;
+        display: table;
+        border-collapse: collapse;
+        margin: 0px;
+        font-size: 12px;
+    }
+
+    .mat-row,
+    .mat-header-row {
+        display: table-row;
+    }
+
+    .mat-cell {
+        word-wrap: initial;
+        display: table-cell;
+        padding: 0px 20px;
+        line-break: unset;
+        width: auto;
+        white-space: nowrap;
+        overflow: hidden;
+        vertical-align: middle;
+        height: 70px;
+        font-size: 12px;
+    }
+    
+    .mat-header-cell {
+        word-wrap: initial;
+        display: table-cell;
+        padding: 0px 20px;
+        line-break: unset;
+        width: auto;
+        white-space: nowrap;
+        overflow: hidden;
+        vertical-align: middle;
+        height: 70px;
+        font-size: 12px;
+    }
+  }
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: lightgray white;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 12px !important;
+}
+
+*::-webkit-scrollbar-track {
+  background: white;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: lightgray;
+  border-radius: 15px;
+  border: 3px solid white;
+}
+
+.spinner {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+
+
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
