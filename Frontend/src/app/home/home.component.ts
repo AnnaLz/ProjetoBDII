@@ -1,5 +1,3 @@
-import { HttpClient } from '@angular/common/http';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -42,25 +40,24 @@ export class HomeComponent implements OnInit, AfterViewInit  {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private generalService: GeralService, private cdk: ChangeDetectorRef) {
-    this.loading = true;
+  constructor(private generalService: GeralService, private cdk: ChangeDetectorRef) {}
+
+  ngOnInit(){
     this.generalService.getAll().subscribe(
       (response) => {
+        this.loading = true;
         this.dataSource = new MatTableDataSource(response);
         this.cdk.detectChanges();
-        this.dataSource.paginator = this.paginator;  
-        this.dataSource.sort = this.sort; 
         this.loading = false;
-    })
+    });
   }
-
-  ngOnInit(){}
 
   ngAfterViewInit() {
     this.cdk.detectChanges();
     setTimeout(() => {
       this.dataSource.paginator = this.paginator;  
       this.dataSource.sort = this.sort; 
-    }, 5000);
+    }, 8000);
   }
+
 }

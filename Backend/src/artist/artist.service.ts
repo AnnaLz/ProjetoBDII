@@ -59,7 +59,7 @@ export class ArtistService {
     -- AND album.qtd_artists = 1
     -- AND album.img IS NOT NULL
     ORDER BY album.id ASC
-    LIMIT 10;`
+    LIMIT 100;`
 
     return this.repository.query(query)
   }
