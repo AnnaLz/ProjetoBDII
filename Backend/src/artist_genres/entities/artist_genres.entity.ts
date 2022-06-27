@@ -1,10 +1,10 @@
 import { Artist } from "src/artist/entities/artist.entity";
-import { Entity, JoinColumn, OneToOne, PrimaryColumn } from "typeorm";
+import { Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 
 @Entity()
 export class ArtistGenres {
     @PrimaryColumn({ name: 'id_artist', type: 'varchar'})
-    @OneToOne(() => Artist)
+    @ManyToOne(() => Artist, artist => artist.id)
     @JoinColumn({ name: 'id_artist'})
     id_artist: string;
 

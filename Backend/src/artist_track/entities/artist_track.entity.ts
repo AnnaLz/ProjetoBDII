@@ -1,16 +1,16 @@
 import { Artist } from "src/artist/entities/artist.entity";
 import { Track } from "src/track/entities/track.entity";
-import { PrimaryColumn, OneToOne, JoinColumn, Column, Entity } from "typeorm";
+import { PrimaryColumn, JoinColumn, Column, Entity, OneToMany, ManyToOne } from "typeorm";
 
 @Entity()
 export class ArtistTrack {
     @PrimaryColumn({ name: 'id_artist', type: 'varchar'})
-    @OneToOne(() => Artist)
+    @ManyToOne(() => Artist, artist => artist.id)
     @JoinColumn({ name: 'id_artist'})
     id_artist: string;
 
     @PrimaryColumn({ name: 'id_track', type: 'varchar'})    
-    @OneToOne(() => Track)
+    @ManyToOne(() => Track, track => track.id)
     @JoinColumn({ name: 'id_track'})
     id_track: string;
 

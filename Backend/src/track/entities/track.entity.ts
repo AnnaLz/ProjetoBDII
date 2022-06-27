@@ -1,5 +1,5 @@
 import { Album } from "src/album/entities/album.entity";
-import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 
 @Entity()
 export class Track {
@@ -21,7 +21,7 @@ export class Track {
     @Column({ name: 'qtd_artistas', type: 'int'})
     qtd_artistas: number;
 
-    @OneToOne(() => Album)
+    @ManyToOne(() => Album, album => album.id)
     @JoinColumn({ name: 'album_id'})
     album_id: Album;
 }
