@@ -46,89 +46,89 @@
         </form>
     </mat-card><br><br>
     
-      <div class="example mat-elevation-z8" *ngIf="!loading">
+      <div class="example mat-elevation-z8" *ngIf="show && !loading">
         <mat-table [dataSource]="dataSource" matSort #table>
-            <ng-container matColumnDef="track.id">
+            <ng-container matColumnDef="track_id">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> track.id</mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.track_id}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="track.name">
+            <ng-container matColumnDef="track_name">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> track.name </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.track_name}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="track.duration">
+            <ng-container matColumnDef="track_duration">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> track.duration </mat-header-cell>
                 <mat-cell *matCellDef="let row" style="text-align: center;"> {{row.track_duration}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="track.explicit">
+            <ng-container matColumnDef="track_explicit">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> track.explicit </mat-header-cell>
                 <mat-cell *matCellDef="let row" style="text-align: center;"> {{row.track_explicit}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="track.track_number">
+            <ng-container matColumnDef="track_track_number">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> track.track_number </mat-header-cell>
                 <mat-cell *matCellDef="let row" style="text-align: center;"> {{row.track_track_number}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="track.qtd_artistas">
+            <ng-container matColumnDef="track_qtd_artistas">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> track.qtd_artistas </mat-header-cell>
                 <mat-cell *matCellDef="let row" style="text-align: center;"> {{row.track_qtd_artistas}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="artist.id">
+            <ng-container matColumnDef="artist_id">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> artist.id </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.artist_id}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="artist.name">
+            <ng-container matColumnDef="artist_name">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> artist.name </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.artist_name}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="artist.followers">
+            <ng-container matColumnDef="artist_followers">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> artist.followers </mat-header-cell>
                 <mat-cell *matCellDef="let row" style="text-align: center;"> {{row.artist_followers}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="artist.popularity">
+            <ng-container matColumnDef="artist_popularity">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> artist.popularity </mat-header-cell>
                 <mat-cell *matCellDef="let row" style="text-align: center;"> {{row.artist_popularity}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="artist.img">
+            <ng-container matColumnDef="artist_img">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> artist.img </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.artist_img}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="album.id">
+            <ng-container matColumnDef="album_id">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> album.id </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.album_id}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="album.name">
+            <ng-container matColumnDef="album_name">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> album.name </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.album_name}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="album.release_date">
+            <ng-container matColumnDef="album_release_date">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> album.release_date </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.album_release_date}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="album.qtd_tracks">
+            <ng-container matColumnDef="album_qtd_tracks">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> album.qtd_tracks </mat-header-cell>
                 <mat-cell *matCellDef="let row" style="text-align: center;"> {{row.album_qtd_tracks}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="album.qtd_artists">
+            <ng-container matColumnDef="album_qtd_artists">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> album.qtd_artists </mat-header-cell>
                 <mat-cell *matCellDef="let row" style="text-align: center;"> {{row.album_qtd_artists}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="album.img">
+            <ng-container matColumnDef="album_img">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> album.img </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.album_img}} </mat-cell>
             </ng-container>
@@ -141,14 +141,4 @@
       </div><br>
 
       <mat-spinner *ngIf="loading" class="spinner"></mat-spinner>
-<!-- 
-      <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
-        <defs>
-          <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#00bc9b" />
-            <stop offset="100%" stop-color="#5eaefd" />
-          </linearGradient>
-        </defs>
-        <circle cx="50" cy="50" r="47" stroke="url(#gradient)" stroke-width="6" fill="none" transform='rotate(90 50 50)'/>
-      </svg> -->
 </div>
