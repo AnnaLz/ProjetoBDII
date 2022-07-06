@@ -89,3 +89,9 @@ table {
     stroke-dasharray: 300;
     transition: all .8s ease-in-out;
 }
+
+.mt-grafico {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
