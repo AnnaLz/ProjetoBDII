@@ -1,6 +1,53 @@
-<div class="container">      
+<div class="container">
+    <mat-card> 
+        <form [formGroup]="dadosRelatorio">
+        <div class="row">
+            <div class="col">
+                <section class="example-section">
+                    <p>Track</p>
+                    <span class="example-list-section">
+                        <mat-slide-toggle class="example-margin" color="primary" formControlName="track_id">id</mat-slide-toggle><br>
+                        <mat-slide-toggle class="example-margin" color="primary" formControlName="track_name">name</mat-slide-toggle><br>
+                        <mat-slide-toggle class="example-margin" color="primary" formControlName="track_duration">duration</mat-slide-toggle><br>
+                        <mat-slide-toggle class="example-margin" color="primary" formControlName="track_explicit">explicit</mat-slide-toggle><br>
+                        <mat-slide-toggle class="example-margin" color="primary" formControlName="track_track_number">track_number</mat-slide-toggle><br>
+                        <mat-slide-toggle class="example-margin" color="primary" formControlName="track_qtd_artistas">qtd_artistas</mat-slide-toggle>
+                    </span>
+                </section>
+            </div>
+
+            <div class="col">
+                <section class="example-section">
+                    <p>Artist</p>
+                    <span class="example-list-section">
+                        <mat-slide-toggle class="example-margin" color="primary" formControlName="artist_id">id</mat-slide-toggle><br>
+                        <mat-slide-toggle class="example-margin" color="primary" formControlName="artist_name">name</mat-slide-toggle><br>
+                        <mat-slide-toggle class="example-margin" color="primary" formControlName="artist_followers">followers</mat-slide-toggle><br>
+                        <mat-slide-toggle class="example-margin" color="primary" formControlName="artist_popularity">popularity</mat-slide-toggle><br>
+                        <mat-slide-toggle class="example-margin" color="primary" formControlName="artist_img">img</mat-slide-toggle>
+                    </span>
+                </section>
+            </div>
+
+            <div class="col">
+                <section class="example-section">
+                    <p>Album</p>
+                    <span class="example-list-section">
+                        <mat-slide-toggle class="example-margin" color="primary" formControlName="album_id">id</mat-slide-toggle><br>
+                        <mat-slide-toggle class="example-margin" color="primary" formControlName="album_name">name</mat-slide-toggle><br>
+                        <mat-slide-toggle class="example-margin" color="primary" formControlName="album_release_date">release_date</mat-slide-toggle><br>
+                        <mat-slide-toggle class="example-margin" color="primary" formControlName="album_qtd_tracks">qtd_tracks</mat-slide-toggle><br>
+                        <mat-slide-toggle class="example-margin" color="primary" formControlName="album_qtd_artists">qtd_artists</mat-slide-toggle><br>
+                        <mat-slide-toggle class="example-margin" color="primary" formControlName="album_img">img</mat-slide-toggle>
+                    </span>
+                </section>
+            </div> 
+        </div>
+        </form>
+    </mat-card><br><br>
+    
       <div class="example mat-elevation-z8" *ngIf="!loading">
-        <mat-table [dataSource]="dataSource" matSort>
+        <mat-table [dataSource]="dataSource" matSort #table>
             <ng-container matColumnDef="track.id">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> track.id</mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.track_id}} </mat-cell>

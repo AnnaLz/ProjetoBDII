@@ -12,7 +12,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSortModule } from '@angular/material/sort';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { GeralService } from './services/general.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,12 +29,17 @@ import { GeralService } from './services/general.service';
     AppRoutingModule,
     CommonModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
     MatTableModule,
     MatSortModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatSlideToggleModule
   ],
   providers: [GeralService],
   bootstrap: [AppComponent]
