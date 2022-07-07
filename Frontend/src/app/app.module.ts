@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,12 +17,14 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { GeralService } from './services/general.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HighchartsChartModule } from 'highcharts-angular';
-
+import { MatTabsModule } from '@angular/material/tabs';
+import { CloudComponent } from './cloud/cloud.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    CloudComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     MatCardModule,
     MatCheckboxModule,
     MatSlideToggleModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    MatTabsModule
   ],
   providers: [GeralService],
   bootstrap: [AppComponent]

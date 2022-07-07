@@ -3,28 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { merge, Observable } from 'rxjs';
+import { forkJoin, merge, Observable } from 'rxjs';
 import { GeralService } from '../services/general.service';
-import * as Highcharts from 'highcharts';
-
-declare var require: any;
-const More = require('highcharts/highcharts-more');
-More(Highcharts);
-
-import Histogram from 'highcharts/modules/histogram-bellcurve';
-Histogram(Highcharts);
-
-const Exporting = require('highcharts/modules/exporting');
-Exporting(Highcharts);
-
-const ExportData = require('highcharts/modules/export-data');
-ExportData(Highcharts);
-
-const Accessibility = require('highcharts/modules/accessibility');
-Accessibility(Highcharts);
-
-const Wordcloud = require('highcharts/modules/wordcloud');
-Wordcloud(Highcharts);
 
 export interface ADHOC {
   track_id: string;
@@ -56,19 +36,16 @@ export class HomeComponent implements OnInit, AfterViewInit  {
   //displayedColumns = [ 'track.id', 'track.name', 'track.duration', 'track.explicit', 'track.track_number', 'track.qtd_artistas', 'artist.id', 'artist.name', 'artist.followers', 'artist.popularity', 'artist.img', 'album.id', 'album.name', 'album.release_date', 'album.qtd_tracks', 'album.qtd_artists', 'album.img'];
   displayedColumns: string [];
   dataSource: MatTableDataSource<ADHOC>;
+  dataLength: number;
   loading = true;
   show = false;
+  showGrafico = false;
+  data = new Array();
+  dataChart: any;
   body: any;
 
-  highcharts = Highcharts;
-  chartOptions: any;
-  public activity: any;
-  public xData: any;
-  public label: any;
-  options:any;
-
   @ViewChild('table', {static: false}) table: MatTable<ADHOC>;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private generalService: GeralService, private cdk: ChangeDetectorRef) {}
@@ -137,20 +114,34 @@ export class HomeComponent implements OnInit, AfterViewInit  {
   }
 
   ngOnInit(){
-    this.loadOptions();
-    Highcharts.chart('container', this.options);
-    this.generalService.getAll().subscribe(
-      (response) => {
-        this.loading = true;
-        this.show = false;
-        this.dataSource = new MatTableDataSource(response);
-        this.cdk.detectChanges();
-        this.loading = false;
-        this.show = true;
+    forkJoin([
+      this.generalService.getWordCloud(),
+      this.generalService.getAll()
+    ]).subscribe(response => {
+      response[0].forEach((element: any) => {
+        element.weight = parseInt(element.weight);
+        this.data.push([element.name, element.weight]);
+      });
+
+      this.dataChart = this.data;
+
+      this.loading = true;
+      this.show = false;
+      this.dataSource = new MatTableDataSource(response[1]);
+      this.dataSource.data = response[1];
+      this.dataLength = response.length;
+
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+
+      this.cdk.detectChanges();
+      this.loading = false;
+      this.show = true;
+      this.showGrafico = true;
     });
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit() { 
     let o1: Observable<boolean> = this.c1!.valueChanges;
     let o2: Observable<boolean> = this.c2!.valueChanges;
     let o3: Observable<boolean> = this.c3!.valueChanges;
@@ -197,47 +188,7 @@ export class HomeComponent implements OnInit, AfterViewInit  {
     setTimeout(() => {
       this.dataSource.paginator = this.paginator;  
       this.dataSource.sort = this.sort; 
-    }, 8000);
-  }
-
-  loadOptions(){
-    var text = `O JMeter é uma ferramenta gratuita, open source, multiplataforma e escrita em Java na qual é possível realizar testes de performance. Um teste de performance visa testar como uma aplicação se comporta em geral, principalmente em relação à quantidade de requisições simultâneas. Para isso, submete-se a aplicação a uma avaliação de carga, stress ou resistência para avaliar se os resultados são satisfatórios, visando garantir a qualidade da aplicação.Estes testes nos permitem fazer a análiseTodos os testes foram repetidos 30 vezes antes de obter a média.`;
-    var obj: any;
-    var lines = text.split(/[,\. ]+/g),
-      data = Highcharts.reduce(lines, function (arr: any, word: any) {
-          obj = Highcharts.find(arr, function (obj: any) {
-              return obj.name === word;
-          });
-          if (obj) { obj.weight += 1; } 
-          else {
-              obj = {
-                  name: word,
-                  weight: 1
-              };
-              arr.push(obj);
-          }
-          return arr;
-      }, []);
-
-    this.options = {
-      accessibility: {
-          screenReaderSection: {
-              beforeChartFormat: 
-                  '<h5>{chartTitle}</h5>' +
-                  '<div>{chartSubtitle}</div>' +
-                  '<div>{chartLongdesc}</div>' +
-                  '<div>{viewTableButton}</div>'
-          }
-      },
-      series: [{
-          type: 'wordcloud',
-          data: data,
-          name: 'Occurrences'
-      }],
-      title: {text: 'Gêneros mais comuns'},
-      credits: {enabled: false},
-      exporting: {allowHTML: false, enabled: false},
-  };
+    }, 9000);
   }
 
 }

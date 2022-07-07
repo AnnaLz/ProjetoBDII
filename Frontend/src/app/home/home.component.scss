@@ -4,19 +4,16 @@
     padding: 2%;
 }
 
-table {
-    width: 100%;
-}
-
 .example {
     display: block;
-    width: 100%;
+    margin: auto;
+    width: 98%;
     overflow-x: auto;
     scroll-behavior: smooth;
 
     .mat-table {
-        width: 100%;
-        max-width: 100%;
+        // width: 100%;
+        max-width: 30%;
         margin-bottom: 1rem;
         display: table;
         border-collapse: collapse;
@@ -94,4 +91,11 @@ table {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.card {
+  max-width: 98%; 
+  display: block; 
+  margin: auto; 
+  margin-top: 2%;
 }

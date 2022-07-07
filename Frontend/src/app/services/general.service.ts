@@ -15,5 +15,10 @@ export class GeralService {
   getAll(): Observable<any>{
     return this.http.get(`${baseUrl}/artist`);
   }  
+
+  
+  getWordCloud(): Observable<any>{
+    return this.http.get(`${baseUrl}/general/word-cloud`);
+  }  
   
 }
