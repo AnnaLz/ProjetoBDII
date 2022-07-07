@@ -11,7 +11,7 @@ export class GeneralService {
         @InjectRepository(ArtistGenres) private readonly artistGenreRepository: Repository<ArtistGenres>
     ) {}
 
-    findAll(): Promise<any[]> {
+    getAllColumns(): Promise<any[]> {
         let query = 
         `SELECT
         track.id AS "track_id",

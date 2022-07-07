@@ -7,7 +7,7 @@ export class GeneralController {
 
   @Get('/all-columns')
   getAllColumns() {
-    return this.generalService.getWorldCloud();
+    return this.generalService.getAllColumns();
   }
 
   @Get('/word-cloud')

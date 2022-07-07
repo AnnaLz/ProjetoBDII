@@ -13,10 +13,9 @@ export class GeralService {
   constructor( private http: HttpClient) { }
 
   getAll(): Observable<any>{
-    return this.http.get(`${baseUrl}/artist`);
+    return this.http.get(`${baseUrl}/general/all-columns`);
   }  
 
-  
   getWordCloud(): Observable<any>{
     return this.http.get(`${baseUrl}/general/word-cloud`);
   }  
