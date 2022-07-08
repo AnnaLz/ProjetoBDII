@@ -1,5 +1,6 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
@@ -26,6 +27,13 @@ export interface ADHOC {
   album_img: string;
 }
 
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -50,6 +58,9 @@ export class HomeComponent implements OnInit, AfterViewInit  {
 
   constructor(private generalService: GeralService, private cdk: ChangeDetectorRef) {}
 
+  qtdPalavras = new FormControl("40", [Validators.max(150), Validators.min(1), Validators.required]);
+  matcher = new MyErrorStateMatcher();
+  
   dadosRelatorio:FormGroup = new FormGroup({
     track_id: new FormControl(true),
     track_name: new FormControl(true),
@@ -114,8 +125,12 @@ export class HomeComponent implements OnInit, AfterViewInit  {
   }
 
   ngOnInit(){
+    let body = {
+      qtd: this.qtdPalavras.value.toString()
+    }
+
     forkJoin([
-      this.generalService.getWordCloud(),
+      this.generalService.getWordCloud(body),
       this.generalService.getAll()
     ]).subscribe(response => {
       response[0].forEach((element: any) => {
@@ -188,7 +203,27 @@ export class HomeComponent implements OnInit, AfterViewInit  {
     setTimeout(() => {
       this.dataSource.paginator = this.paginator;  
       this.dataSource.sort = this.sort; 
-    }, 9000);
+    }, 10000);
+  }
+
+  loadCloud(){
+    this.data = [];
+    this.showGrafico = false;
+
+    let body = {
+      qtd: this.qtdPalavras.value.toString()
+    }
+
+    this.generalService.getWordCloud(body)
+      .subscribe(response => {
+        response.forEach((element: any) => {
+          element.weight = parseInt(element.weight);
+          this.data.push([element.name, element.weight]);
+        });
+
+        this.dataChart = this.data; 
+        this.showGrafico = true;
+      });
   }
 
 }

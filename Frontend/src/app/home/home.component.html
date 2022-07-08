@@ -1,9 +1,25 @@
 <div class="container">
     <mat-tab-group mat-stretch-tabs preserveContent>
         <mat-tab label="Nuvem de Palavras">
-            <mat-card class="mt-grafico" style="margin-top: 2%;">
+            <form>
+                <mat-form-field class="example-input">
+                    <mat-label>Número de palavras na Nuvem</mat-label>
+                    <input matInput value="20" type="number" min="1" max="150" [formControl]="qtdPalavras" [errorStateMatcher]="matcher">
+                    <mat-error *ngIf="!qtdPalavras.hasError('required')">
+                        Insira um número entre 1 e 150
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-flat-button color="primary" class="btn" [disabled]="!qtdPalavras.valid" (click)="loadCloud()">Filtrar</button>
+            </form>
+
+         
+
+            <mat-card class="mt-grafico">
                 <app-cloud #nuvem *ngIf="showGrafico" [data]="dataChart" class="chart"></app-cloud>
-            </mat-card>
+            </mat-card>   
+            
+            <mat-spinner *ngIf="!showGrafico" class="spinner"></mat-spinner>
         </mat-tab>
 
         <mat-tab label="Relatório AD-HOC">

@@ -16,8 +16,8 @@ export class GeralService {
     return this.http.get(`${baseUrl}/general/all-columns`);
   }  
 
-  getWordCloud(): Observable<any>{
-    return this.http.get(`${baseUrl}/general/word-cloud`);
+  getWordCloud(qtd: any): Observable<any>{
+    return this.http.post(`${baseUrl}/general/word-cloud`, qtd);
   }  
-  
+ 
 }

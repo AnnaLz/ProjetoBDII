@@ -18,7 +18,10 @@ import { GeralService } from './services/general.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { CloudComponent } from './cloud/cloud.component';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -43,9 +46,13 @@ import { CloudComponent } from './cloud/cloud.component';
     MatCheckboxModule,
     MatSlideToggleModule,
     HighchartsChartModule,
-    MatTabsModule
+    MatTabsModule,
+    MatInputModule,
+    MatButtonModule
   ],
-  providers: [GeralService],
+  providers: [
+    GeralService, 
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -60,16 +60,20 @@ export class GeneralService {
         LIMIT 100;`
     
         return this.artisRepository.query(query)
-      }
+    }
 
-    async getWorldCloud(): Promise<any[]> {
+    async getWorldCloud(body: any): Promise<any[]> {
+        let limite = body.qtd.toString();
+
         let query = 
         `SELECT G.genre AS name, COUNT(*) AS weight
         FROM public.artist_genres AS G
         GROUP BY G.genre
         ORDER BY 2 DESC
-        LIMIT 100`;
+        LIMIT ` + limite;
 
        return this.artistGenreRepository.query(query);   
     }
+
+
 }
