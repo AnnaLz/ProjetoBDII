@@ -22,12 +22,17 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { CloudComponent } from './cloud/cloud.component';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { AdhocComponent } from './adhoc/adhoc.component';
+import { AvancadoComponent } from './avancado/avancado.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CloudComponent,
+    AdhocComponent,
+    AvancadoComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,8 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
     HighchartsChartModule,
     MatTabsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ],
   providers: [
     GeralService, 

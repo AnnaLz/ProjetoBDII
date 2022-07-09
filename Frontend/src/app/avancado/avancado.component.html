@@ -1,0 +1,485 @@
+<div class="container">
+    <form [formGroup]="queryForm">
+    <table>
+        <tr>
+            <td>
+                <mat-slide-toggle color="primary" formControlName="track_id"></mat-slide-toggle>
+            </td>
+
+             <td>
+                <mat-form-field>
+                    <mat-label>Nome da coluna</mat-label>
+                    <input [readonly]="true" matInput value="track.id" [disabled]="!queryForm.value.track_id">
+                </mat-form-field>
+            </td>
+
+            <td>
+                <mat-form-field>
+                    <mat-select [(value)]="selected" [disabled]="!queryForm.value.track_id">
+                        <mat-option value="op1">1</mat-option>
+                        <mat-option value="op2">2</mat-option>
+                        <mat-option value="op3">3</mat-option>
+                        <mat-option value="op4">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+
+            <td>
+                <mat-form-field>
+                    <input matInput value="%x%" [disabled]="!queryForm.value.track_id">
+                </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <mat-slide-toggle color="primary" formControlName="track_name"></mat-slide-toggle>
+            </td>
+
+            <td>
+                <mat-form-field>
+                    <mat-label>Nome da coluna</mat-label>
+                    <input [readonly]="true" matInput value="track.name" [disabled]="!queryForm.value.track_name">
+                </mat-form-field>
+            </td>
+
+            <td>
+                <mat-form-field>
+                    <mat-select [(value)]="selected" [disabled]="!queryForm.value.track_name">
+                        <mat-option value="op1">1</mat-option>
+                        <mat-option value="op2">2</mat-option>
+                        <mat-option value="op3">3</mat-option>
+                        <mat-option value="op4">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <input matInput value="%x%" [disabled]="!queryForm.value.track_name">
+                </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <mat-slide-toggle color="primary" formControlName="track_duration"></mat-slide-toggle>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-label>Nome da coluna</mat-label>
+                    <input [readonly]="true" matInput value="track.duration" [disabled]="!queryForm.value.track_duration">
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-select [(value)]="selected" [disabled]="!queryForm.value.track_duration">
+                        <mat-option value="op1">1</mat-option>
+                        <mat-option value="op2">2</mat-option>
+                        <mat-option value="op3">3</mat-option>
+                        <mat-option value="op4">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <input matInput value="%x%" [disabled]="!queryForm.value.track_duration">
+                </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <mat-slide-toggle color="primary" formControlName="track_explicit"></mat-slide-toggle>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-label>Nome da coluna</mat-label>
+                    <input [readonly]="true" matInput value="track.explicit" [disabled]="!queryForm.value.track_explicit">
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-select [(value)]="selected" [disabled]="!queryForm.value.track_explicit">
+                        <mat-option value="op1">1</mat-option>
+                        <mat-option value="op2">2</mat-option>
+                        <mat-option value="op3">3</mat-option>
+                        <mat-option value="op4">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <input matInput value="%x%" [disabled]="!queryForm.value.track_explicit">
+                </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <mat-slide-toggle color="primary" formControlName="track_track_number"></mat-slide-toggle>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-label>Nome da coluna</mat-label>
+                    <input [readonly]="true" matInput value="track.track_number" [disabled]="!queryForm.value.track_track_number">
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-select [(value)]="selected" [disabled]="!queryForm.value.track_track_number">
+                        <mat-option value="op1">1</mat-option>
+                        <mat-option value="op2">2</mat-option>
+                        <mat-option value="op3">3</mat-option>
+                        <mat-option value="op4">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <input matInput value="%x%" [disabled]="!queryForm.value.track_track_number">
+                </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <mat-slide-toggle color="primary" formControlName="track_qtd_artistas"></mat-slide-toggle>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-label>Nome da coluna</mat-label>
+                    <input [readonly]="true" matInput value="track.qtd_artistas" [disabled]="!queryForm.value.track_qtd_artistas">
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-select [(value)]="selected" [disabled]="!queryForm.value.track_qtd_artistas">
+                        <mat-option value="op1">1</mat-option>
+                        <mat-option value="op2">2</mat-option>
+                        <mat-option value="op3">3</mat-option>
+                        <mat-option value="op4">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <input matInput value="%x%" [disabled]="!queryForm.value.track_qtd_artistas">
+                </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+           <td>
+                <mat-slide-toggle color="primary" formControlName="artist_id"></mat-slide-toggle>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-label>Nome da coluna</mat-label>
+                    <input [readonly]="true" matInput value="artist.id" [disabled]="!queryForm.value.artist_id">
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-select [(value)]="selected" [disabled]="!queryForm.value.artist_id">
+                        <mat-option value="op1">1</mat-option>
+                        <mat-option value="op2">2</mat-option>
+                        <mat-option value="op3">3</mat-option>
+                        <mat-option value="op4">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <input matInput value="%x%" [disabled]="!queryForm.value.artist_id">
+                </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <mat-slide-toggle color="primary" formControlName="artist_followers"></mat-slide-toggle>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-label>Nome da coluna</mat-label>
+                    <input [readonly]="true" matInput value="artist.followers" [disabled]="!queryForm.value.artist_followers">
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-select [(value)]="selected" [disabled]="!queryForm.value.artist_followers">
+                        <mat-option value="op1">1</mat-option>
+                        <mat-option value="op2">2</mat-option>
+                        <mat-option value="op3">3</mat-option>
+                        <mat-option value="op4">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <input matInput value="%x%" [disabled]="!queryForm.value.artist_followers">
+                </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <mat-slide-toggle color="primary" formControlName="artist_popularity"></mat-slide-toggle>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-label>Nome da coluna</mat-label>
+                    <input [readonly]="true" matInput value="artist.popularity" [disabled]="!queryForm.value.artist_popularity">
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-select [(value)]="selected" [disabled]="!queryForm.value.artist_popularity">
+                        <mat-option value="op1">1</mat-option>
+                        <mat-option value="op2">2</mat-option>
+                        <mat-option value="op3">3</mat-option>
+                        <mat-option value="op4">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <input matInput value="%x%" [disabled]="!queryForm.value.artist_popularity">
+                </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <mat-slide-toggle color="primary" formControlName="artist_img"></mat-slide-toggle>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-label>Nome da coluna</mat-label>
+                    <input [readonly]="true" matInput value="artist.img" [disabled]="!queryForm.value.artist_img">
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-select [(value)]="selected" [disabled]="!queryForm.value.artist_img">
+                        <mat-option value="op1">1</mat-option>
+                        <mat-option value="op2">2</mat-option>
+                        <mat-option value="op3">3</mat-option>
+                        <mat-option value="op4">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <input matInput value="%x%" [disabled]="!queryForm.value.artist_img">
+                </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <mat-slide-toggle color="primary" formControlName="album_id"></mat-slide-toggle>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-label>Nome da coluna</mat-label>
+                    <input [readonly]="true" matInput value="album.id" [disabled]="!queryForm.value.album_id">
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-select [(value)]="selected" [disabled]="!queryForm.value.album_id">
+                        <mat-option value="op1">1</mat-option>
+                        <mat-option value="op2">2</mat-option>
+                        <mat-option value="op3">3</mat-option>
+                        <mat-option value="op4">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <input matInput value="%x%" [disabled]="!queryForm.value.album_id">
+                </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <mat-slide-toggle color="primary" formControlName="album_name"></mat-slide-toggle>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-label>Nome da coluna</mat-label>
+                    <input [readonly]="true" matInput value="album.name" [disabled]="!queryForm.value.album_name">
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-select [(value)]="selected" [disabled]="!queryForm.value.album_name">
+                        <mat-option value="op1">1</mat-option>
+                        <mat-option value="op2">2</mat-option>
+                        <mat-option value="op3">3</mat-option>
+                        <mat-option value="op4">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <input matInput value="%x%" [disabled]="!queryForm.value.album_name">
+                </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <mat-slide-toggle color="primary" formControlName="album_release_date"></mat-slide-toggle>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-label>Nome da coluna</mat-label>
+                    <input [readonly]="true" matInput value="album.release_date" [disabled]="!queryForm.value.album_release_date">
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-select [(value)]="selected" [disabled]="!queryForm.value.album_release_date">
+                        <mat-option value="op1">1</mat-option>
+                        <mat-option value="op2">2</mat-option>
+                        <mat-option value="op3">3</mat-option>
+                        <mat-option value="op4">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <input matInput value="%x%" [disabled]="!queryForm.value.album_release_date">
+                </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <mat-slide-toggle color="primary" formControlName="album_qtd_tracks"></mat-slide-toggle>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-label>Nome da coluna</mat-label>
+                    <input [readonly]="true" matInput value="album.qtd_tracks" [disabled]="!queryForm.value.album_qtd_tracks">
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-select [(value)]="selected" [disabled]="!queryForm.value.album_qtd_tracks">
+                        <mat-option value="op1">1</mat-option>
+                        <mat-option value="op2">2</mat-option>
+                        <mat-option value="op3">3</mat-option>
+                        <mat-option value="op4">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <input matInput value="%x%" [disabled]="!queryForm.value.album_qtd_tracks">
+                </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <mat-slide-toggle color="primary" formControlName="album_qtd_artists"></mat-slide-toggle>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-label>Nome da coluna</mat-label>
+                    <input [readonly]="true" matInput value="album.qtd_artists" [disabled]="!queryForm.value.album_qtd_artists">
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-select [(value)]="selected" [disabled]="!queryForm.value.album_qtd_artists">
+                        <mat-option value="op1">1</mat-option>
+                        <mat-option value="op2">2</mat-option>
+                        <mat-option value="op3">3</mat-option>
+                        <mat-option value="op4">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <input matInput value="%x%" [disabled]="!queryForm.value.album_qtd_artists">
+                </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <mat-slide-toggle color="primary" formControlName="album_img"></mat-slide-toggle>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-label>Nome da coluna</mat-label>
+                    <input [readonly]="true" matInput value="album.img" [disabled]="!queryForm.value.album_img">
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <mat-select [(value)]="selected" [disabled]="!queryForm.value.album_img">
+                        <mat-option value="op1">1</mat-option>
+                        <mat-option value="op2">2</mat-option>
+                        <mat-option value="op3">3</mat-option>
+                        <mat-option value="op4">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+
+           <td>
+                <mat-form-field>
+                    <input matInput value="%x%" [disabled]="!queryForm.value.album_img">
+                </mat-form-field>
+            </td>
+        </tr>
+    </table>
+    </form>
+</div>

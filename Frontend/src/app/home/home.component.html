@@ -4,7 +4,7 @@
             <form>
                 <mat-form-field class="example-input">
                     <mat-label>Número de palavras na Nuvem</mat-label>
-                    <input matInput value="20" type="number" min="1" max="150" [formControl]="qtdPalavras" [errorStateMatcher]="matcher">
+                    <input matInput value="20" type="number" min="1" max="1000" [formControl]="qtdPalavras" [errorStateMatcher]="matcher">
                     <mat-error *ngIf="!qtdPalavras.hasError('required')">
                         Insira um número entre 1 e 150
                     </mat-error>
@@ -12,8 +12,6 @@
 
                 <button mat-flat-button color="primary" class="btn" [disabled]="!qtdPalavras.valid" (click)="loadCloud()">Filtrar</button>
             </form>
-
-         
 
             <mat-card class="mt-grafico">
                 <app-cloud #nuvem *ngIf="showGrafico" [data]="dataChart" class="chart"></app-cloud>
@@ -24,147 +22,18 @@
 
         <mat-tab label="Relatório AD-HOC">
             <ng-template matTabContent>
-            <mat-card class="card mat-elevation-z8">
-                <form [formGroup]="dadosRelatorio">
-                <div class="row">
-                    <div class="col">
-                        <section class="example-section">
-                            <p>Track</p>
-                            <span class="example-list-section">
-                                <mat-slide-toggle class="example-margin" color="primary" formControlName="track_id">id</mat-slide-toggle><br>
-                                <mat-slide-toggle class="example-margin" color="primary" formControlName="track_name">name</mat-slide-toggle><br>
-                                <mat-slide-toggle class="example-margin" color="primary" formControlName="track_duration">duration</mat-slide-toggle><br>
-                                <mat-slide-toggle class="example-margin" color="primary" formControlName="track_explicit">explicit</mat-slide-toggle><br>
-                                <mat-slide-toggle class="example-margin" color="primary" formControlName="track_track_number">track_number</mat-slide-toggle><br>
-                                <mat-slide-toggle class="example-margin" color="primary" formControlName="track_qtd_artistas">qtd_artistas</mat-slide-toggle>
-                            </span>
-                        </section>
-                    </div>
-        
-                    <div class="col">
-                        <section class="example-section">
-                            <p>Artist</p>
-                            <span class="example-list-section">
-                                <mat-slide-toggle class="example-margin" color="primary" formControlName="artist_id">id</mat-slide-toggle><br>
-                                <mat-slide-toggle class="example-margin" color="primary" formControlName="artist_name">name</mat-slide-toggle><br>
-                                <mat-slide-toggle class="example-margin" color="primary" formControlName="artist_followers">followers</mat-slide-toggle><br>
-                                <mat-slide-toggle class="example-margin" color="primary" formControlName="artist_popularity">popularity</mat-slide-toggle><br>
-                                <mat-slide-toggle class="example-margin" color="primary" formControlName="artist_img">img</mat-slide-toggle>
-                            </span>
-                        </section>
-                    </div>
-        
-                    <div class="col">
-                        <section class="example-section">
-                            <p>Album</p>
-                            <span class="example-list-section">
-                                <mat-slide-toggle class="example-margin" color="primary" formControlName="album_id">id</mat-slide-toggle><br>
-                                <mat-slide-toggle class="example-margin" color="primary" formControlName="album_name">name</mat-slide-toggle><br>
-                                <mat-slide-toggle class="example-margin" color="primary" formControlName="album_release_date">release_date</mat-slide-toggle><br>
-                                <mat-slide-toggle class="example-margin" color="primary" formControlName="album_qtd_tracks">qtd_tracks</mat-slide-toggle><br>
-                                <mat-slide-toggle class="example-margin" color="primary" formControlName="album_qtd_artists">qtd_artists</mat-slide-toggle><br>
-                                <mat-slide-toggle class="example-margin" color="primary" formControlName="album_img">img</mat-slide-toggle>
-                            </span>
-                        </section>
-                    </div> 
-                </div>
-                </form>
+                <app-adhoc [data]="dataTable"></app-adhoc>
 
-            </mat-card><br><br>
-                <div class="example mat-elevation-z8" *ngIf="show">
-                <mat-table [dataSource]="dataSource" matSort #table>
-                    <ng-container matColumnDef="track_id">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> track.id</mat-header-cell>
-                        <mat-cell *matCellDef="let row"> {{row.track_id}} </mat-cell>
-                    </ng-container>
-        
-                    <ng-container matColumnDef="track_name">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> track.name </mat-header-cell>
-                        <mat-cell *matCellDef="let row"> {{row.track_name}} </mat-cell>
-                    </ng-container>
-        
-                    <ng-container matColumnDef="track_duration">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> track.duration </mat-header-cell>
-                        <mat-cell *matCellDef="let row" style="text-align: center;"> {{row.track_duration}} </mat-cell>
-                    </ng-container>
-        
-                    <ng-container matColumnDef="track_explicit">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> track.explicit </mat-header-cell>
-                        <mat-cell *matCellDef="let row" style="text-align: center;"> {{row.track_explicit}} </mat-cell>
-                    </ng-container>
-        
-                    <ng-container matColumnDef="track_track_number">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> track.track_number </mat-header-cell>
-                        <mat-cell *matCellDef="let row" style="text-align: center;"> {{row.track_track_number}} </mat-cell>
-                    </ng-container>
-        
-                    <ng-container matColumnDef="track_qtd_artistas">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> track.qtd_artistas </mat-header-cell>
-                        <mat-cell *matCellDef="let row" style="text-align: center;"> {{row.track_qtd_artistas}} </mat-cell>
-                    </ng-container>
-        
-                    <ng-container matColumnDef="artist_id">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> artist.id </mat-header-cell>
-                        <mat-cell *matCellDef="let row"> {{row.artist_id}} </mat-cell>
-                    </ng-container>
-        
-                    <ng-container matColumnDef="artist_name">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> artist.name </mat-header-cell>
-                        <mat-cell *matCellDef="let row"> {{row.artist_name}} </mat-cell>
-                    </ng-container>
-        
-                    <ng-container matColumnDef="artist_followers">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> artist.followers </mat-header-cell>
-                        <mat-cell *matCellDef="let row" style="text-align: center;"> {{row.artist_followers}} </mat-cell>
-                    </ng-container>
-        
-                    <ng-container matColumnDef="artist_popularity">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> artist.popularity </mat-header-cell>
-                        <mat-cell *matCellDef="let row" style="text-align: center;"> {{row.artist_popularity}} </mat-cell>
-                    </ng-container>
-        
-                    <ng-container matColumnDef="artist_img">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> artist.img </mat-header-cell>
-                        <mat-cell *matCellDef="let row"> {{row.artist_img}} </mat-cell>
-                    </ng-container>
-        
-                    <ng-container matColumnDef="album_id">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> album.id </mat-header-cell>
-                        <mat-cell *matCellDef="let row"> {{row.album_id}} </mat-cell>
-                    </ng-container>
-        
-                    <ng-container matColumnDef="album_name">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> album.name </mat-header-cell>
-                        <mat-cell *matCellDef="let row"> {{row.album_name}} </mat-cell>
-                    </ng-container>
-        
-                    <ng-container matColumnDef="album_release_date">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> album.release_date </mat-header-cell>
-                        <mat-cell *matCellDef="let row"> {{row.album_release_date}} </mat-cell>
-                    </ng-container>
-        
-                    <ng-container matColumnDef="album_qtd_tracks">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> album.qtd_tracks </mat-header-cell>
-                        <mat-cell *matCellDef="let row" style="text-align: center;"> {{row.album_qtd_tracks}} </mat-cell>
-                    </ng-container>
-        
-                    <ng-container matColumnDef="album_qtd_artists">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> album.qtd_artists </mat-header-cell>
-                        <mat-cell *matCellDef="let row" style="text-align: center;"> {{row.album_qtd_artists}} </mat-cell>
-                    </ng-container>
-        
-                    <ng-container matColumnDef="album_img">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> album.img </mat-header-cell>
-                        <mat-cell *matCellDef="let row"> {{row.album_img}} </mat-cell>
-                    </ng-container>
-                
-                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                    <mat-row *matRowDef="let row; columns: displayedColumns;">
-                    </mat-row>
-                </mat-table>
-                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
-                </div><br>
+                <mat-spinner *ngIf="!showGrafico" class="spinner"></mat-spinner>
             </ng-template>
+        </mat-tab>
+
+        <mat-tab label="Relatório Avançado">
+            <!-- <ng-template matTabContent> -->
+                <app-avancado></app-avancado>
+
+                <mat-spinner *ngIf="!showGrafico" class="spinner"></mat-spinner>
+            <!-- </ng-template> -->
         </mat-tab>
     </mat-tab-group>
 </div>

@@ -52,7 +52,7 @@ export class CloudComponent implements OnInit {
       series: [{
           type: 'wordcloud',
           data: dataSource,
-          name: 'Occurrences'
+          name: 'Ocorrências'
       }],
       title: {text: 'Gêneros mais comuns'},
       credits: {enabled: false},
