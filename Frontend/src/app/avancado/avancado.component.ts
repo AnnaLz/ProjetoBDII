@@ -8,7 +8,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AvancadoComponent implements OnInit {
   queryForm: FormGroup;
-  check;;
 
   constructor(private cdk: ChangeDetectorRef) { }
 
@@ -289,13 +288,11 @@ export class AvancadoComponent implements OnInit {
       }
     }
 
-    if(this.queryForm.value.artist_img == true){
-      if(this.queryForm.value.artist_img_op != null && this.queryForm.value.artist_img_inp != ''){
-        query = query + 'artist.img' + ' ' + this.queryForm.value.artist_img_op + ' ' + this.queryForm.value.artist_img_inp + ' AND '
+    if(this.queryForm.value.album_img == true){
+      if(this.queryForm.value.album_img_op != null && this.queryForm.value.album_img_inp != ''){
+        query = query + 'album_img.img' + ' ' + this.queryForm.value.album_img_op + ' ' + this.queryForm.value.album_img_inp + ' AND '
       }
     }
-
-   
 
     if(this.queryForm.value.order_by == true){
       if(this.queryForm.value.limit == true){
@@ -303,21 +300,26 @@ export class AvancadoComponent implements OnInit {
         if(this.queryForm.value.asc == true) query = query + ' ORDER BY ' + this.queryForm.value.order_by_op + ' ASC';
         if (this.queryForm.value.dsc == true) query = query + ' ORDER BY ' + this.queryForm.value.order_by_op + ' DSC';
         if(this.queryForm.value.limit_inp != '')  query = query + ' LIMIT ' + this.queryForm.value.limit_inp;
+        this.loadQuery(query);
       } else {
         query = query.substring(0, query.length - 4);
         if(this.queryForm.value.asc == true) query = query + ' ORDER BY ' + this.queryForm.value.order_by_op + ' ASC';
         if (this.queryForm.value.dsc == true) query = query + ' ORDER BY ' + this.queryForm.value.order_by_op + ' DSC';
+        this.loadQuery(query);
       } 
     } else {
         if(this.queryForm.value.limit == true){
           query = query.substring(0, query.length - 4);
           if(this.queryForm.value.limit_inp != '')  query = query + ' LIMIT ' + this.queryForm.value.limit_inp;
+          this.loadQuery(query);
         } else {
           query = query.substring(0, query.length - 4);
+          this.loadQuery(query);
         }
       }
-
-    console.log(query)
   }
 
+  loadQuery(query: string){
+    console.log(query)
+  }
 }
