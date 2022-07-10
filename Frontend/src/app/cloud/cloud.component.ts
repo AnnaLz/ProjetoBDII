@@ -55,7 +55,7 @@ export class CloudComponent implements OnInit {
           name: 'Ocorrências'
       }],
       title: {text: 'Gêneros mais comuns'},
-      credits: {enabled: false},
+      credits: {enabled: true},
       exporting: {allowHTML: false, enabled: false},
     };
 }

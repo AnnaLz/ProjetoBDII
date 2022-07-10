@@ -5,3 +5,9 @@ export class WordCloudDto {
     @IsNotEmpty()
     qtd: string;
 }
+
+export class QueryDto {
+    @IsString()
+    @IsNotEmpty()
+    query: string;
+}

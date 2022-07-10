@@ -39,27 +39,15 @@ export class GeneralService {
         JOIN public.artist artist ON artist.id = artist_track.id_artist
         JOIN public.album album ON album.id = track.album_id
         WHERE artist_track.main_artist IS TRUE
-        -- AND track.id <> '5joHCyw0OAC36CVqvLVzvy'
-        -- AND track.name LIKE 'Crazy T%'
-        -- AND track.duration > 300000
-        -- AND track.explicit IS FALSE
-        -- AND track.track_number <> 12
-        -- AND track.qtd_artistas = 1
-        -- AND artist.id <> '3TkWygOTDBZXAdFDh9HOkG'
-        -- AND artist.name LIKE '%zzy%'
-        -- AND artist.followers > 1000
-        -- AND artist.popularity > 10
-        -- AND artist.img IS NOT NULL
-        -- AND album.id <> '39NEMnQvr4Mn5Pv3cQnIX3'
-        -- AND album.name NOT LIKE '%Live%'
-        -- AND album.release_date::date > '2020-09-17'
-        -- AND album.qtd_tracks > 10
-        -- AND album.qtd_artists = 1
-        -- AND album.img IS NOT NULL
         ORDER BY album.id ASC
         LIMIT 100;`
     
         return this.artisRepository.query(query)
+    }
+
+    async getQuery(body: any): Promise<any[]> {
+        let query = body.query;
+        return this.artisRepository.query(query);
     }
 
     async getWorldCloud(body: any): Promise<any[]> {

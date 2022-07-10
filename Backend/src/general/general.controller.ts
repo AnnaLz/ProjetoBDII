@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { WordCloudDto } from './dto/return.dto';
+import { QueryDto, WordCloudDto } from './dto/return.dto';
 import { GeneralService } from './general.service';
 
 @Controller('general')
@@ -11,8 +11,13 @@ export class GeneralController {
     return this.generalService.getAllColumns();
   }
 
+  @Post('/montar-query')
+  consultaQuery(@Body() query: QueryDto) {
+    return this.generalService.getQuery(query);
+  }
+
   @Post('/word-cloud')
-  create(@Body() qtd: WordCloudDto) {
+  worldCloud(@Body() qtd: WordCloudDto) {
     return this.generalService.getWorldCloud(qtd);
   }
 }

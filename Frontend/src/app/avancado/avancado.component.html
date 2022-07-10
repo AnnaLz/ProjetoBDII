@@ -116,7 +116,7 @@
 
            <td>
                 <mat-form-field floatLabel="always">
-                    <input matInput formControlName="track_explicit_inp" placeholder="boolean">
+                    <input matInput [readonly]="true" formControlName="track_explicit_inp" placeholder="boolean">
                 </mat-form-field>
             </td>
         </tr>
@@ -534,8 +534,7 @@
             <td>
                 <mat-form-field>
                     <mat-select placeholder="Campos" formControlName="order_by_op">
-                        <mat-option>NONE</mat-option>
-
+                        <mat-option *ngFor="let col of selecionados" [value]="col.coluna">{{col.coluna}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </td>

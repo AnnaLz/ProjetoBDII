@@ -14,7 +14,11 @@ export class GeralService {
 
   getAll(): Observable<any>{
     return this.http.get(`${baseUrl}/general/all-columns`);
-  }  
+  }
+
+  getQuery(query: any): Observable<any>{
+    return this.http.post(`${baseUrl}/general/montar-query`, query);
+  } 
 
   getWordCloud(qtd: any): Observable<any>{
     return this.http.post(`${baseUrl}/general/word-cloud`, qtd);
