@@ -35,12 +35,12 @@ import { MatSelectModule } from '@angular/material/select';
     AvancadoComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     CommonModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
     MatTableModule,
