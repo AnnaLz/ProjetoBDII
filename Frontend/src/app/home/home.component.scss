@@ -82,7 +82,7 @@ input[type=number] {
 :host ::ng-deep mat-tab-body.mat-tab-body-active {
   position: relative;
   overflow-x: hidden;
-  overflow-y: auto !important;
+  overflow-y: hidden;
   z-index: 1;
   flex-grow: 1;
   scroll-behavior: smooth !important;

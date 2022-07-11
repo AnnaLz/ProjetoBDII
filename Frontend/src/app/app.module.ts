@@ -25,6 +25,7 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
 import { AdhocComponent } from './adhoc/adhoc.component';
 import { AvancadoComponent } from './avancado/avancado.component';
 import { MatSelectModule } from '@angular/material/select';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { MatSelectModule } from '@angular/material/select';
     CloudComponent,
     AdhocComponent,
     AvancadoComponent,
+    TableComponent,
   ],
   imports: [
     ReactiveFormsModule,

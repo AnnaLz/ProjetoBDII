@@ -10,6 +10,9 @@ import { GeralService } from '../services/general.service';
 export class AvancadoComponent implements OnInit {
   queryForm: FormGroup;
   selecionados:any[] = [];
+  show = false;
+  dataSource: any;
+  displayedColumns: any[] = [];
 
   constructor(private cdk: ChangeDetectorRef, private generalService: GeralService) { }
 
@@ -556,7 +559,16 @@ export class AvancadoComponent implements OnInit {
   loadQuery(query: string){
     let body = { query: query };
     this.generalService.getQuery(body).subscribe(response => {
-      console.log(response);
+      this.selecionados.forEach(element => {
+        let col = element.coluna.replace('.', '_');
+        this.displayedColumns.push(col);
+      });
+      this.dataSource = response;
+      this.show = true;
     }); 
+  }
+
+  back(){
+    this.show = false;
   }
 }

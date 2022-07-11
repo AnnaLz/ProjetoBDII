@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!show">
     <form [formGroup]="queryForm">
     <table>
         <tr>
@@ -16,7 +16,7 @@
             <td>
                 <mat-form-field>
                     <mat-select placeholder="Operação" formControlName="track_id_op">
-                        <mat-option value="==">==</mat-option>
+                        <mat-option value="=">=</mat-option>
                         <mat-option value="<>"><></mat-option>
                         <mat-option value="LIKE">LIKE</mat-option>
                         <mat-option value="NOT LIKE">NOT LIKE</mat-option>
@@ -46,7 +46,7 @@
             <td>
                 <mat-form-field>
                     <mat-select placeholder="Operação" formControlName="track_name_op">
-                        <mat-option value="==">==</mat-option>
+                        <mat-option value="=">=</mat-option>
                         <mat-option value="<>"><></mat-option>
                         <mat-option value="LIKE">LIKE</mat-option>
                         <mat-option value="NOT LIKE">NOT LIKE</mat-option>
@@ -76,7 +76,7 @@
            <td>
                 <mat-form-field>
                     <mat-select placeholder="Operação" formControlName="track_duration_op">
-                        <mat-option value="==">==</mat-option>
+                        <mat-option value="=">=</mat-option>
                         <mat-option value="<>"><></mat-option>
                         <mat-option value=">">></mat-option>
                         <mat-option value="<"><</mat-option>
@@ -136,7 +136,7 @@
            <td>
                 <mat-form-field>
                     <mat-select placeholder="Operação" formControlName="track_track_number_op">
-                        <mat-option value="==">==</mat-option>
+                        <mat-option value="=">=</mat-option>
                         <mat-option value="<>"><></mat-option>
                         <mat-option value=">">></mat-option>
                         <mat-option value="<"><</mat-option>
@@ -168,7 +168,7 @@
            <td>
                 <mat-form-field>
                     <mat-select placeholder="Operação" formControlName="track_qtd_artistas_op">
-                        <mat-option value="==">==</mat-option>
+                        <mat-option value="=">=</mat-option>
                         <mat-option value="<>"><></mat-option>
                         <mat-option value=">">></mat-option>
                         <mat-option value="<"><</mat-option>
@@ -200,7 +200,7 @@
            <td>
                 <mat-form-field>
                     <mat-select placeholder="Operação" formControlName="artist_id_op">
-                        <mat-option value="==">==</mat-option>
+                        <mat-option value="=">=</mat-option>
                         <mat-option value="<>"><></mat-option>
                         <mat-option value="LIKE">LIKE</mat-option>
                         <mat-option value="NOT LIKE">NOT LIKE</mat-option>
@@ -230,7 +230,7 @@
             <td>
                  <mat-form-field>
                      <mat-select placeholder="Operação" formControlName="artist_name_op">
-                         <mat-option value="==">==</mat-option>
+                         <mat-option value="=">=</mat-option>
                          <mat-option value="<>"><></mat-option>
                          <mat-option value="LIKE">LIKE</mat-option>
                          <mat-option value="NOT LIKE">NOT LIKE</mat-option>
@@ -260,7 +260,7 @@
            <td>
                 <mat-form-field>
                     <mat-select placeholder="Operação" formControlName="artist_followers_op">
-                        <mat-option value="==">==</mat-option>
+                        <mat-option value="=">=</mat-option>
                         <mat-option value="<>"><></mat-option>
                         <mat-option value=">">></mat-option>
                         <mat-option value="<"><</mat-option>
@@ -292,7 +292,7 @@
            <td>
                 <mat-form-field>
                     <mat-select placeholder="Operação" formControlName="artist_popularity_op">
-                        <mat-option value="==">==</mat-option>
+                        <mat-option value="=">=</mat-option>
                         <mat-option value="<>"><></mat-option>
                         <mat-option value=">">></mat-option>
                         <mat-option value="<"><</mat-option>
@@ -324,7 +324,7 @@
            <td>
                 <mat-form-field>
                     <mat-select placeholder="Operação" formControlName="artist_img_op">
-                        <mat-option value="==">==</mat-option>
+                        <mat-option value="=">=</mat-option>
                         <mat-option value="<>"><></mat-option>
                         <mat-option value="LIKE">LIKE</mat-option>
                         <mat-option value="NOT LIKE">NOT LIKE</mat-option>
@@ -354,7 +354,7 @@
            <td>
                 <mat-form-field>
                     <mat-select placeholder="Operação" formControlName="album_id_op">
-                        <mat-option value="==">==</mat-option>
+                        <mat-option value="=">=</mat-option>
                         <mat-option value="<>"><></mat-option>
                         <mat-option value="LIKE">LIKE</mat-option>
                         <mat-option value="NOT LIKE">NOT LIKE</mat-option>
@@ -384,7 +384,7 @@
            <td>
                 <mat-form-field>
                     <mat-select placeholder="Operação" formControlName="album_name_op">
-                        <mat-option value="==">==</mat-option>
+                        <mat-option value="=">=</mat-option>
                         <mat-option value="<>"><></mat-option>
                         <mat-option value="LIKE">LIKE</mat-option>
                         <mat-option value="NOT LIKE">NOT LIKE</mat-option>
@@ -414,7 +414,7 @@
            <td>
                 <mat-form-field>
                     <mat-select placeholder="Operação" formControlName="album_release_date_op">
-                        <mat-option value="==">==</mat-option>
+                        <mat-option value="=">=</mat-option>
                         <mat-option value="<>"><></mat-option>
                         <mat-option value="LIKE">LIKE</mat-option>
                         <mat-option value="NOT LIKE">NOT LIKE</mat-option>
@@ -445,7 +445,7 @@
            <td>
                 <mat-form-field>
                     <mat-select placeholder="Operação" formControlName="album_qtd_tracks_op">
-                        <mat-option value="==">==</mat-option>
+                        <mat-option value="=">=</mat-option>
                         <mat-option value="<>"><></mat-option>
                         <mat-option value=">">></mat-option>
                         <mat-option value="<"><</mat-option>
@@ -477,7 +477,7 @@
            <td>
                 <mat-form-field>
                     <mat-select placeholder="Operação" formControlName="album_qtd_artists_op">
-                        <mat-option value="==">==</mat-option>
+                        <mat-option value="=">=</mat-option>
                         <mat-option value="<>"><></mat-option>
                         <mat-option value=">">></mat-option>
                         <mat-option value="<"><</mat-option>
@@ -509,7 +509,7 @@
            <td>
                 <mat-form-field>
                     <mat-select placeholder="Operação" formControlName="album_img_op">
-                        <mat-option value="==">==</mat-option>
+                        <mat-option value="=">=</mat-option>
                         <mat-option value="<>"><></mat-option>
                         <mat-option value="LIKE">LIKE</mat-option>
                         <mat-option value="NOT LIKE">NOT LIKE</mat-option>
@@ -559,7 +559,13 @@
             </td>
         </tr>
     </table>
-
-    <button mat-flat-button color="primary" class="btn" (click)="montarQuery()">Montar Query</button>
     </form>
 </div>
+
+<div *ngIf="show">
+    <app-table [data]="dataSource" [displayedColumns]="displayedColumns" style="margin: 2%;"></app-table><br>
+</div>
+
+
+<button mat-flat-button color="primary" class="btn" (click)="montarQuery()" *ngIf="!show">Montar Query</button>
+<button mat-flat-button color="primary" class="btn" (click)="back()" *ngIf="show">Voltar</button>
