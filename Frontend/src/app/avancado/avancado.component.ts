@@ -569,6 +569,7 @@ export class AvancadoComponent implements OnInit {
   }
 
   back(){
+    this.displayedColumns = [];
     this.show = false;
   }
 }
